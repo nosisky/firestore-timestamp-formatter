@@ -1,6 +1,6 @@
 {
   "name": "firestore-timestamp-formatter",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Firestore Timestamp Formatter",
   "main": "index.js",
   "scripts": {
