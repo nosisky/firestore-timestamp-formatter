@@ -17,7 +17,7 @@ const transcode = (data) => {
   );
 };
 
-const timestampConverter = {
+const TimestampFormatter = {
   toFirestore(documentData) {
     return documentData;
   },
@@ -30,4 +30,4 @@ const timestampConverter = {
   },
 };
 
-export default timestampConverter;
+export default TimestampFormatter;
