@@ -1,20 +1,15 @@
 const transcode = (data) => {
-  return (
-    Object.keys(data).reduce <
-    DocumentData >
-    ((accumulator, key) => {
-      if (data[key].constructor.name === "Timestamp") {
-        accumulator[key] = data[key].toDate();
-      } else if (Array.isArray(data[key])) {
-        accumulator[key] = data[key].map(transcode);
-      } else {
-        accumulator[key] = data[key];
-      }
+  return Object.keys(data).reduce((accumulator, key) => {
+    if (data[key].constructor.name === "Timestamp") {
+      accumulator[key] = data[key].toDate();
+    } else if (Array.isArray(data[key])) {
+      accumulator[key] = data[key].map(transcode);
+    } else {
+      accumulator[key] = data[key];
+    }
 
-      return accumulator;
-    },
-    {})
-  );
+    return accumulator;
+  }, {});
 };
 
 const TimestampFormatter = {
@@ -30,4 +25,4 @@ const TimestampFormatter = {
   },
 };
 
-export default TimestampFormatter;
+module.exports = TimestampFormatter;
