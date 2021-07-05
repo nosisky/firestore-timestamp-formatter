@@ -1,9 +1,12 @@
 const transcode = (data) => {
   return Object.keys(data).reduce((accumulator, key) => {
+    console.log(data[key].constructor.name, data[key]);
     if (data[key].constructor.name === "Timestamp") {
       accumulator[key] = data[key].toDate();
     } else if (Array.isArray(data[key])) {
       accumulator[key] = data[key].map(transcode);
+    } else if (typeof data[key] === "object") {
+      accumulator[key] = transcode(data[key]);
     } else {
       accumulator[key] = data[key];
     }
